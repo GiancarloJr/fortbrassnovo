@@ -1,0 +1,111 @@
+.header {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #fff;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+  border-radius: 0 0 8px 8px;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 8px 24px;
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  padding: 16px 32px 16px 16px;
+  border-radius: 0 0 12px 12px;
+}
+
+.logo {
+  height: 100px;
+  width: auto;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.brand-small {
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #080000; 
+}
+
+.brand-large {
+  font-size: 2.1rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+  color: #000000; 
+  margin-top: -3px;
+}
+
+
+.menu {
+  display: flex;
+  gap: 32px;
+}
+
+.menu a {
+  color: #102040;
+  font-weight: 700;
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: color .2s;
+}
+.menu a:hover {
+  color: #eeb802;
+}
+
+.social {
+  display: flex;
+  gap: 10px;
+}
+
+.social svg {
+  width: 22px;
+  height: 22px;
+  filter: brightness(0) saturate(100%) invert(78%) sepia(56%) saturate(566%) hue-rotate(358deg) brightness(101%) contrast(99%);
+  transition: filter .2s;
+}
+
+.social svg:hover {
+  filter: brightness(0) saturate(100%) invert(36%) sepia(99%) saturate(2993%) hue-rotate(344deg) brightness(99%) contrast(98%);
+}
+
+/* Responsivo */
+@media (max-width: 950px) {
+  .header-content {
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+  }
+  .menu {
+    gap: 18px;
+  }
+}
+
+@media (max-width: 700px) {
+  .header-content {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 8px 4px;
+  }
+  .menu, .social {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .brand {
+    font-size: 1.2rem;
+  }
+}
