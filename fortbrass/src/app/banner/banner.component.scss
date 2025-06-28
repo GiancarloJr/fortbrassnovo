@@ -1,0 +1,116 @@
+.banner-container {
+  position: relative;
+  background: #07124b;
+  width: 100vw;
+  min-height: 550px;
+  overflow: hidden;
+  padding-bottom: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.banner-content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  max-width: 1300px;
+  margin: 0 auto;
+  min-height: 400px;
+  padding: 40px 24px 0 24px;
+  z-index: 1;
+}
+
+.banner-personagem {
+  height: 350px;
+  width: auto;
+  margin-right: 30px;
+  margin-bottom: -20px;
+  z-index: 1;
+}
+
+.banner-text {
+  color: #fff;
+  max-width: 540px;
+}
+
+.banner-text h1 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 24px;
+  font-family: 'Oswald', Arial, Helvetica, sans-serif;
+}
+
+.yellow {
+  color: #ffd600; // Amarelo vibrante
+}
+
+.banner-highlight {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #ffd600;
+  margin-bottom: 28px;
+}
+
+.banner-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 20px;
+  background: #fff;
+  color: #07124b;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 6px;
+  text-decoration: none;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.08);
+  letter-spacing: 0.5px;
+  transition: background 0.2s, color 0.2s;
+
+  svg {
+    width: 22px;
+    height: 22px;
+    margin-right: 8px;
+    vertical-align: middle;
+    fill: #ff0000;
+    transition: fill .2s;
+    flex-shrink: 0;
+  }
+
+  &:hover {
+    background: #ffd600;
+    color: #07124b;
+    svg {
+      fill: #07124b;
+    }
+  }
+}
+
+.banner-wave {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 110px;
+  width: 100%;
+  background: linear-gradient(200deg, #ffd600 0 25%, #ffd600 60% 100%);
+  clip-path: polygon(60% 35%, 100% 0%, 100% 100%, 0% 100%);
+  z-index: 0;
+}
+
+@media (max-width: 900px) {
+  .banner-content {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    min-height: 450px;
+  }
+  .banner-personagem {
+    margin: 0 auto 12px auto;
+    height: 220px;
+  }
+  .banner-text h1 {
+    font-size: 2rem;
+  }
+  .banner-wave {
+    height: 80px;
+  }
+}

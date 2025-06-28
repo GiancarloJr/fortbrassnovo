@@ -1,0 +1,109 @@
+.info-block-bg {
+  width: 100vw;
+  background: #fff;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  padding-top: 32px;
+  padding-bottom: 140px;
+
+  // Faixas azuis/amarela do topo e rodapé
+  &::before, &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 120vw;
+    left: -10vw;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  &::before {
+    height: 80px;
+    top: 0;
+    background: linear-gradient(93deg, #ffd600 100%, #fff 43% 58%, #ffd600 86%);
+    clip-path: polygon(0 0, 100% 0, 50% 50%, 0 100%);
+  }
+
+  &::after {
+    height: 120px;
+    bottom: 0;
+    background: linear-gradient(93deg, #ffd600 100%, #fff 43% 58%, #ffd600 86%);
+    clip-path: polygon(0 0, 100% 0, 50% 50%, 0 100%);
+  }
+}
+
+.info-block-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 3;
+}
+
+.info-title {
+  font-family: 'Oswald', Arial, Helvetica, sans-serif;
+  font-size: 2.3rem;
+  font-weight: 900;
+  color: #102040;
+  margin-bottom: 54px;
+  letter-spacing: 1.5px;
+}
+
+.info-stats {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 90px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+
+.info-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 220px;
+}
+
+.info-icon {
+  margin-bottom: 20px;
+  svg {
+    fill: #0a1c48;
+    width: 62px;
+    height: 62px;
+    display: block;
+  }
+}
+
+.info-number {
+  font-family: 'Oswald', Arial, Helvetica, sans-serif;
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.yellow {
+  color: #ffd600;
+}
+
+.info-label {
+  font-size: 1.1rem;
+  color: #656565;
+  margin-top: 3px;
+  font-family: 'Oswald', Arial, Helvetica, sans-serif;
+}
+
+@media (max-width: 950px) {
+  .info-stats {
+    flex-direction: column;
+    gap: 38px;
+    align-items: center;
+  }
+  .info-stat {
+    width: 100%;
+  }
+  .info-block-bg {
+    padding-bottom: 30px;
+  }
+}
