@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HeaderComponent } from '../header/header.component';
 import { BannerComponent } from '../banner/banner.component';
 import { InfoBlockComponent } from '../info-block/info-block.component';
+import { ServicesComponent } from '../services/services.component';
 
 const routes: Routes = [
   {
@@ -18,7 +19,8 @@ const routes: Routes = [
     HomeComponent,
     HeaderComponent,
     BannerComponent,
-    InfoBlockComponent
+    InfoBlockComponent,
+    ServicesComponent
   ],
   imports: [
     CommonModule,

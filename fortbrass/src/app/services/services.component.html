@@ -1,0 +1,24 @@
+<div class="servicos-bg">
+  <div class="servicos-content">
+    <div class="servicos-img-area">
+      <img src="../../assets/perosnagens.png" alt="Equipe Souza Lima" class="servicos-img">
+    </div>
+    <div class="servicos-text-area">
+      <span class="servicos-subtitle">TERCEIRIZAÇÃO DE SERVIÇOS</span>
+      <h2 class="servicos-title">
+        Soluções Completas em<br>
+        Segurança e Facilities
+      </h2>
+      <p class="servicos-desc">
+        O Grupo Fortbrass oferece uma ampla variedade de serviços para empresas e estabelecimentos, sejam eles privados ou públicos, tais como hotéis, hospitais, shopping centers, condomínios e academias, entre inúmeros outros.
+      </p>
+      <div class="servicos-lista">
+        <div *ngFor="let servico of listaServicos" class="servico-item">
+          {{servico}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="servicos-wave-top"></div>
+  <div class="servicos-wave-bottom"></div>
+</div>
