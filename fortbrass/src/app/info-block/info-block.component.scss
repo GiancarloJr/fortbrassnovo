@@ -21,14 +21,14 @@
   &::before {
     height: 80px;
     top: 0;
-    background: linear-gradient(93deg, #ffd600 100%, #fff 43% 58%, #ffd600 86%);
+    background: linear-gradient(200deg, #be8d80 0 25%, #dd2c00 60% 100%);
     clip-path: polygon(0 0, 100% 0, 50% 50%, 0 100%);
   }
 
   &::after {
     height: 120px;
     bottom: 0;
-    background: linear-gradient(93deg, #ffd600 100%, #fff 43% 58%, #ffd600 86%);
+    background: linear-gradient(93deg, #dd2c00 100%, #fff 43% 58%, #ffd600 86%);
     clip-path: polygon(0 0, 100% 0, 50% 50%, 0 100%);
   }
 }
