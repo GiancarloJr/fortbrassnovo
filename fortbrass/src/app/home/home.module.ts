@@ -6,6 +6,9 @@ import { HeaderComponent } from '../header/header.component';
 import { BannerComponent } from '../banner/banner.component';
 import { InfoBlockComponent } from '../info-block/info-block.component';
 import { ServicesComponent } from '../services/services.component';
+import { ToggleServicosComponent } from '../toggle-servicos/toggle-servicos.component';
+import { PainelFacilitiesComponent } from '../painel-facilities/painel-facilities.component';
+import { PainelSegurancaComponent } from '../painel-seguranca/painel-seguranca.component';
 
 const routes: Routes = [
   {
@@ -20,7 +23,10 @@ const routes: Routes = [
     HeaderComponent,
     BannerComponent,
     InfoBlockComponent,
-    ServicesComponent
+    ServicesComponent,
+    ToggleServicosComponent,
+    PainelSegurancaComponent,
+    PainelFacilitiesComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,20 @@
+<div class="painel-facilities">
+  <div class="profissional-bloco">
+    <div class="hex-bg">
+      <img src="../../assets/personagem.png" alt="Profissional Facilities" class="profissional-img">
+    </div>
+  </div>
+  <div class="servicos-bloco">
+    <h2>
+      COM A VEPER TEM MAIS QUE <span class="orange">TERCEIRIZAÇÃO DE MÃO DE OBRA,</span><br>
+      TEM EXCELÊNCIA NA PRESTAÇÃO DE SERVIÇOS
+    </h2>
+    <div class="servicos-grid">
+      <div *ngFor="let servico of listaFacilities" class="servico-card">
+        <span class="servico-icon" [innerHTML]="servico.icon"></span>
+        <span class="servico-label">{{servico.label}}</span>
+      </div>
+    </div>
+    <button class="saiba-mais">Saiba mais</button>
+  </div>
+</div>

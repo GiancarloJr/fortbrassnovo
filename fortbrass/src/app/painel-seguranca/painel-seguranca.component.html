@@ -1,0 +1,20 @@
+<div class="painel-seguranca">
+  <div class="servicos-bloco">
+    <h2>
+      SOLUÇÕES PERSONALIZADAS E EFICIENTES EM<br>
+      <span class="red">SEGURANÇA</span> PARA DIVERSOS SEGMENTOS.
+    </h2>
+    <div class="servicos-grid">
+      <div *ngFor="let servico of listaSeguranca" class="servico-card">
+        <span class="servico-icon" [innerHTML]="servico.icon"></span>
+        <span class="servico-label">{{servico.label}}</span>
+      </div>
+    </div>
+    <button class="saiba-mais">Saiba mais</button>
+  </div>
+  <div class="profissional-bloco">
+    <div class="hex-bg">
+      <img src="../../assets/personagem.png" alt="Profissional Segurança" class="profissional-img">
+    </div>
+  </div>
+</div>
