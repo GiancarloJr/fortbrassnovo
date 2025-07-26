@@ -7,8 +7,11 @@ import { BannerComponent } from '../banner/banner.component';
 import { InfoBlockComponent } from '../info-block/info-block.component';
 import { ServicesComponent } from '../services/services.component';
 import { ToggleServicosComponent } from '../toggle-servicos/toggle-servicos.component';
-import { PainelFacilitiesComponent } from '../painel-facilities/painel-facilities.component';
-import { PainelSegurancaComponent } from '../painel-seguranca/painel-seguranca.component';
+import { PainelFacilitiesComponent } from '../painel-components/painel-facilities/painel-facilities.component';
+import { PainelSegurancaComponent } from '../painel-components/painel-seguranca/painel-seguranca.component';
+import { SegmentosComponent } from '../segmentos/segmentos.component';
+import { CarroselComponent } from '../carrosel/carrosel.component';
+import { CarouselComponent } from '../carousel/carousel.component';
 
 const routes: Routes = [
   {
@@ -26,7 +29,10 @@ const routes: Routes = [
     ServicesComponent,
     ToggleServicosComponent,
     PainelSegurancaComponent,
-    PainelFacilitiesComponent
+    PainelFacilitiesComponent,
+    SegmentosComponent,
+    CarroselComponent,
+    CarouselComponent
   ],
   imports: [
     CommonModule,

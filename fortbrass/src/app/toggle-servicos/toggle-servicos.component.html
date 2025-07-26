@@ -1,11 +1,14 @@
-<div class="toggle-buttons">
-  <button [class.selected]="abaSelecionada === 'seguranca'"
-          (click)="abaSelecionada = 'seguranca'">Segurança</button>
-  <button [class.selected]="abaSelecionada === 'facilities'"
-          (click)="abaSelecionada = 'facilities'">Facilities</button>
-</div>
+<div class="content">
 
-<div class="painel-conteudo">
-  <app-painel-seguranca *ngIf="abaSelecionada === 'seguranca'"></app-painel-seguranca>
-  <app-painel-facilities *ngIf="abaSelecionada === 'facilities'"></app-painel-facilities>
+  <div class="toggle-buttons">
+    <button [class.selected]="abaSelecionada === 'seguranca'" (click)="abaSelecionada = 'seguranca'">Segurança</button>
+    <button [class.selected]="abaSelecionada === 'facilities'"
+      (click)="abaSelecionada = 'facilities'">Facilities</button>
+  </div>
+
+  <div class="painel-conteudo">
+    <app-painel-seguranca *ngIf="abaSelecionada === 'seguranca'"></app-painel-seguranca>
+    <app-painel-facilities *ngIf="abaSelecionada === 'facilities'"></app-painel-facilities>
+  </div>
+
 </div>

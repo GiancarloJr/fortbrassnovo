@@ -1,22 +1,27 @@
+.content {
+  width: 100%;
+}
+
+
 .toggle-buttons {
-  width: 370px;
+  width: 297px;
   margin: 35px auto 0 auto;
   background: #dddddd;
   border-radius: 999px;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 6px;
   padding: 8px 8px;
   box-shadow: 0 2px 16px 0 rgba(34,34,68,0.03);
 
   button {
     font-family: 'Oswald', Arial, Helvetica, sans-serif;
-    font-size: 1.33rem;
+    font-size: 0.8rem;
     font-weight: 700;
     background: transparent;
     color: #2e2e56;
-    padding: 17px 46px;
+    padding: 5px 46px;
     border: none;
     outline: none;
     border-radius: 999px;

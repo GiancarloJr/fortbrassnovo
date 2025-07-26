@@ -1,0 +1,55 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wrapper {
+    position: relative;
+    width: 250px; /* mesmo tamanho das divs internas */
+    height: 500px; /* altura da maior div */
+}
+
+.shield {
+    width: 250px;
+    height: 280px;
+    position: absolute; 
+    top: 72px;
+    left: 0;
+    overflow: hidden;
+    background: #1f1d5f;
+    clip-path: path("M80,0 L165,0 L260,55 Q250,250 120,280 Q0,230 -9,60 Z");
+    z-index: 1;
+}
+
+.mask-container {
+    width: 250px;
+    height: 570px;
+    position: absolute; /* para sobrepor */
+    top: -150px;
+    left: 0;
+    overflow: hidden;
+    clip-path: path("M0,0 L250,0 L260,55 Q300,460 125,500 Q-20,460 -10,98 Z");
+    background: transparent;
+    z-index: 2;
+}
+
+.mask-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(0.7); /* diminui para 80% do tamanho */
+    transform-origin: bottom; /* centraliza */
+}
+
+.title {
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    color: #1f1d5f;
+    margin-top: 10px;
+    font-family: Arial, sans-serif;
+}
+
+
+

@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-painel-facilities',
   templateUrl: './painel-facilities.component.html',
-  styleUrls: ['./painel-facilities.component.scss']
+  styleUrls: ['../painel-scss/painel-facilities.component.scss']
 })
 export class PainelFacilitiesComponent {
 
