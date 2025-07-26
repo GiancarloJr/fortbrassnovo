@@ -31,8 +31,8 @@ export class CarouselComponent implements OnInit, OnDestroy {
     { image: 'assets/shopping.jpg', title: 'Hospitais' }
   ];
 
-  visibleItems = [...this.items]; // começa com todos
-  currentIndex = 0;
+  visibleItems: CarouselItem[] = [];
+  currentIndex = 6;
   autoSlideInterval: any;
   transitionStyle = 'transform 0.5s ease-in-out';
   autoSlideDelay = 5000;
@@ -58,6 +58,8 @@ export class CarouselComponent implements OnInit, OnDestroy {
 
 
   ngOnInit() {
+    // Cria carrossel infinito duplicando lista
+    this.visibleItems = [...this.items, ...this.items, ...this.items];
     this.startAutoSlide();
   }
 
@@ -65,47 +67,46 @@ export class CarouselComponent implements OnInit, OnDestroy {
     clearInterval(this.autoSlideInterval);
   }
 
+
+
   get transformStyle() {
-    return `translateX(-${this.currentIndex * (100 / 4)}%)`; // 4 itens por vez
+    return `translateX(-${this.currentIndex * (100 / 4)}%)`; // 4 itens visíveis
   }
 
   moveRight() {
     this.resetAutoSlide();
-    this.transitionStyle = 'transform 0.5s ease-in-out';
     this.currentIndex++;
-
-    setTimeout(() => {
-      if (this.currentIndex > 0) {
-        this.transitionStyle = 'none';
-        const first = this.visibleItems.shift();
-        if (first) this.visibleItems.push(first);
-        this.currentIndex = 0;
-      }
-    }, 500);
+    this.checkIndex();
   }
 
   moveLeft() {
     this.resetAutoSlide();
-    this.transitionStyle = 'transform 0.5s ease-in-out';
     this.currentIndex--;
+    this.checkIndex();
+  }
 
+  checkIndex() {
+    // Chegou no final, volta pro meio sem animação
     setTimeout(() => {
-      if (this.currentIndex < 0) {
+      if (this.currentIndex >= this.items.length * 2) {
         this.transitionStyle = 'none';
-        const last = this.visibleItems.pop();
-        if (last) this.visibleItems.unshift(last);
-        this.currentIndex = 0;
+        this.currentIndex = this.items.length;
       }
+      if (this.currentIndex <= this.items.length - 4) {
+        this.transitionStyle = 'none';
+        this.currentIndex = this.items.length;
+      }
+      // Reativa animação depois do ajuste
+      setTimeout(() => this.transitionStyle = 'transform 0.5s ease-in-out', 50);
     }, 500);
   }
 
-
   startAutoSlide() {
-    this.autoSlideInterval = setInterval(() => this.moveLeft(), this.autoSlideDelay);
+    this.autoSlideInterval = setInterval(() => this.moveRight(), this.autoSlideDelay);
   }
 
   resetAutoSlide() {
     clearInterval(this.autoSlideInterval);
-    this.startAutoSlide(); // reinicia com 5s
+    this.startAutoSlide();
   }
 }
