@@ -35,6 +35,7 @@ export class CarouselComponent implements OnInit, OnDestroy {
   currentIndex = 0;
   autoSlideInterval: any;
   transitionStyle = 'transform 0.5s ease-in-out';
+  autoSlideDelay = 5000;
 
   stats: StatItem[] = [
     { value: '+2.000', label: 'Clientes' },
@@ -69,6 +70,7 @@ export class CarouselComponent implements OnInit, OnDestroy {
   }
 
   moveRight() {
+    this.resetAutoSlide();
     this.transitionStyle = 'transform 0.5s ease-in-out';
     this.currentIndex++;
 
@@ -83,6 +85,7 @@ export class CarouselComponent implements OnInit, OnDestroy {
   }
 
   moveLeft() {
+    this.resetAutoSlide();
     this.transitionStyle = 'transform 0.5s ease-in-out';
     this.currentIndex--;
 
@@ -98,6 +101,11 @@ export class CarouselComponent implements OnInit, OnDestroy {
 
 
   startAutoSlide() {
-    this.autoSlideInterval = setInterval(() => this.moveLeft(), 5000);
+    this.autoSlideInterval = setInterval(() => this.moveLeft(), this.autoSlideDelay);
+  }
+
+  resetAutoSlide() {
+    clearInterval(this.autoSlideInterval);
+    this.startAutoSlide(); // reinicia com 5s
   }
 }
