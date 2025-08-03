@@ -23,12 +23,12 @@ interface TagItem {
 })
 export class CarouselComponent implements OnInit, OnDestroy {
   items: CarouselItem[] = [
-    { image: 'assets/shopping.jpg', title: 'Portos' },
-    { image: 'assets/shopping.jpg', title: 'Grandes corporações' },
-    { image: 'assets/shopping.jpg', title: 'Condomínios' },
-    { image: 'assets/shopping.jpg', title: 'Residências' },
+    { image: 'assets/portos.jpg', title: 'Portos' },
+    { image: 'assets/empresas.jpg', title: 'Grandes corporações' },
+    { image: 'assets/condominios.jpeg', title: 'Condomínios' },
+    { image: 'assets/residencia.jpg', title: 'Residências' },
     { image: 'assets/shopping.jpg', title: 'Shoppings' },
-    { image: 'assets/shopping.jpg', title: 'Hospitais' }
+    { image: 'assets/hospital.jpg', title: 'Hospitais' }
   ];
 
   visibleItems: CarouselItem[] = [];
@@ -66,7 +66,6 @@ export class CarouselComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     clearInterval(this.autoSlideInterval);
   }
-
 
 
   get transformStyle() {

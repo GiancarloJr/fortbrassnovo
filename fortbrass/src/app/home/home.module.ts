@@ -12,6 +12,7 @@ import { PainelSegurancaComponent } from '../painel-components/painel-seguranca/
 import { SegmentosComponent } from '../segmentos/segmentos.component';
 import { CarroselComponent } from '../carrosel/carrosel.component';
 import { CarouselComponent } from '../carousel/carousel.component';
+import { LocalAtuacaoComponent } from '../local-atuacao/local-atuacao.component';
 
 const routes: Routes = [
   {
@@ -32,7 +33,8 @@ const routes: Routes = [
     PainelFacilitiesComponent,
     SegmentosComponent,
     CarroselComponent,
-    CarouselComponent
+    CarouselComponent,
+    LocalAtuacaoComponent
   ],
   imports: [
     CommonModule,
