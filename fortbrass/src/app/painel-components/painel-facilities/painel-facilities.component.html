@@ -18,7 +18,8 @@
     </h2>
     <div class="servicos-grid">
       <div *ngFor="let servico of listaFacilities" class="servico-card">
-        <span class="servico-icon" [innerHTML]="servico.icon"></span>
+        <img class="servico-icon" [src]="servico.icon" alt="{{servico.label}}" width="32"
+          height="32" />
         <span class="servico-label">{{servico.label}}</span>
       </div>
     </div>

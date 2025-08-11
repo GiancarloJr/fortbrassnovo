@@ -13,6 +13,7 @@ import { SegmentosComponent } from '../segmentos/segmentos.component';
 import { CarroselComponent } from '../carrosel/carrosel.component';
 import { CarouselComponent } from '../carousel/carousel.component';
 import { LocalAtuacaoComponent } from '../local-atuacao/local-atuacao.component';
+import { NewsCarouselComponent } from '../news-carousel/news-carousel.component';
 
 const routes: Routes = [
   {
@@ -34,7 +35,8 @@ const routes: Routes = [
     SegmentosComponent,
     CarroselComponent,
     CarouselComponent,
-    LocalAtuacaoComponent
+    LocalAtuacaoComponent,    
+    NewsCarouselComponent
   ],
   imports: [
     CommonModule,

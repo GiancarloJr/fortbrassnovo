@@ -1,0 +1,38 @@
+<div class="content">
+
+    <section class="news-section">
+        <h2 class="title">CONFIRA NOSSAS NOTÍCIAS</h2>
+
+        <div class="carousel">
+            <button class="nav left" type="button" (click)="prev()" aria-label="Anterior">
+                ‹
+            </button>
+
+            <div class="track">
+                <article class="card" *ngFor="let item of visibleItems">
+                    <!-- Parte de cima transparente -->
+                    <div class="card-top">
+                        <img [src]="item.imageUrl" [alt]="item.title" loading="lazy" />
+                    </div>
+
+                    <!-- Parte de baixo branca -->
+                    <div class="card-bottom">
+                        <h3 class="card-title">{{ item.title }}</h3>
+                        <button class="cta" type="button" (click)="onCtaClick(item)">
+                            {{ item.ctaLabel || 'Ler mais' }} <span class="chevrons">»</span>
+                        </button>
+                    </div>
+                </article>
+            </div>
+
+            <button class="nav right" type="button" (click)="next()" aria-label="Próximo">
+                ›
+            </button>
+        </div>
+
+        <div class="footer">
+            <button class="more" type="button">Saiba mais</button>
+        </div>
+    </section>
+
+</div>

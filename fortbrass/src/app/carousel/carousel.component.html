@@ -1,37 +1,39 @@
-<div class="carousel-container">
-  <button class="arrow left" (click)="moveLeft()">&#10094;</button>
+<div class="content">
+  <div class="carousel-container">
+    <button class="arrow left" (click)="moveLeft()">&#10094;</button>
 
-  <div class="carousel-wrapper">
-   <div class="carousel" 
-     [style.transform]="'translateX(' + (-currentIndex * (100 / 4)) + '%)'" 
-     [style.transition]="transitionStyle">
+    <div class="carousel-wrapper">
+      <div class="carousel" [style.transform]="'translateX(' + (-currentIndex * (100 / 4)) + '%)'"
+        [style.transition]="transitionStyle">
 
 
-      <div class="carousel-item" *ngFor="let item of visibleItems">
-        <div class="shield">
-          <img [src]="item.image" alt="{{item.title}}">
+        <div class="carousel-item" *ngFor="let item of visibleItems">
+          <div class="shield">
+            <img [src]="item.image" alt="{{item.title}}">
+          </div>
+          <p class="title">{{ item.title }}</p>
         </div>
-        <p class="title">{{ item.title }}</p>
       </div>
     </div>
+
+    <button class="arrow right" (click)="moveRight()">&#10095;</button>
   </div>
 
-  <button class="arrow right" (click)="moveRight()">&#10095;</button>
-</div>
 
+  <!-- NOVA SEÇÃO ABAIXO -->
+  <div class="stats-section">
+    <div class="stats">
+      <div class="stat-item" *ngFor="let stat of stats">
+        <h2>{{ stat.value }}</h2>
+        <p>{{ stat.label }}</p>
+      </div>
+    </div>
 
-<!-- NOVA SEÇÃO ABAIXO -->
-<div class="stats-section">
-  <div class="stats">
-    <div class="stat-item" *ngFor="let stat of stats">
-      <h2>{{ stat.value }}</h2>
-      <p>{{ stat.label }}</p>
+    <div class="tags-container">
+      <span class="tag" *ngFor="let tag of tagsList">
+        <i class="icon">{{ tag.icon }}</i> {{ tag.text }}
+      </span>
     </div>
   </div>
 
-  <div class="tags-container">
-    <span class="tag" *ngFor="let tag of tagsList">
-      <i class="icon">{{ tag.icon }}</i> {{ tag.text }}
-    </span>
-  </div>
 </div>
