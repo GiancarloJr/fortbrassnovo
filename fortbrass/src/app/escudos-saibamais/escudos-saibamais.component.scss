@@ -1,0 +1,243 @@
+/* ===== Layout base ===== */
+:host {
+  --ink: #1e2040;
+  --bg: #fff;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr minmax(260px, 36%);
+  align-items: center;
+  gap: clamp(16px, 4vw, 40px);
+  padding: clamp(12px, 3vw, 24px);
+  background: var(--bg);
+  margin-top: 50px;
+
+  @media (max-width: 1100px) {
+    grid-template-columns: 1fr;
+    .right { order: -1; }
+  }
+}
+
+.title, .subtitle {
+  margin: 0;
+  color: var(--ink);
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 1.1;
+  letter-spacing: .5px;
+  text-align: center;
+}
+.title    { font-size: clamp(24px, 3.6vw, 44px); }
+.subtitle { font-size: clamp(20px, 3vw, 36px);  margin-top: .25rem; margin-bottom: 1.5rem; }
+
+.footer {
+  margin-top: clamp(10px, 3vh, 18px);
+  font-weight: 800;
+  color: var(--ink);
+  text-transform: uppercase;
+  font-size: clamp(18px, 2.2vw, 28px);
+  letter-spacing: .5px;
+  text-align: center;
+}
+
+/* ===== Grid dos brasões ===== */
+.shields {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(150px, 1fr));
+  gap: clamp(16px, 2.2vw, 28px);
+  margin: clamp(10px, 2vh, 24px) 0;
+}
+
+$shield-poly: polygon(
+  /* topo e laterais direitas (iguais às suas) */
+  100% 15%, 100% 49%, 95% 69%, 88% 78%, 83% 84%,
+
+  /* ——— ARCO DIREITO (15 pontos) ——— */
+  82.7% 84%, 81.5% 85.3%, 80.2% 86.6%, 78.8% 87.7%, 76.8% 89.2%,
+  75.0% 90.3%, 73.0% 91.5%, 71.0% 92.6%, 69.0% 93.6%, 66.5% 94.8%,
+  64.0% 95.9%, 61.0% 96.9%, 58.0% 97.8%, 55.0% 98.6%, 52.5% 99.3%,
+
+  /* ponta inferior */
+  50% 100%,
+
+  /* ——— ARCO ESQUERDO (15 pontos – espelho exato) ——— */
+  47.5% 99.3%, 45.0% 98.6%, 42.0% 97.8%, 39.0% 96.9%, 36.0% 95.9%,
+  33.5% 94.8%, 31.0% 93.6%, 29.0% 92.6%, 27.0% 91.5%, 25.0% 90.3%,
+  23.2% 89.2%, 21.2% 87.7%, 19.8% 86.6%, 18.5% 85.3%, 17.3% 84%,
+
+  /* laterais esquerdas e topo (iguais às suas) */
+  12% 78%, 5% 69%, 0 49%, 0 15%,
+  50% 3%
+);
+
+
+
+/* Botão/brasão */
+.shield {
+  --outline: #241B45;
+  --accent:  #C1121F;
+  --scale-inner: 0.92; /* cria a borda (inner menor que outline) */
+
+  position: relative;
+  isolation: isolate;
+  inline-size: 100%;
+  aspect-ratio: 1 / 1.1;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+
+  display: grid;
+  place-items: center;
+  text-align: center;
+
+  &:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 4px;
+    border-radius: 12px;
+  }
+}
+
+/* Borda do brasão (camada de trás) */
+.shield-outline {
+  position: absolute;
+  inset: 0;
+  background: var(--outline);
+  clip-path: $shield-poly;
+  z-index: -2;
+}
+
+/* Miolo do brasão com recorte e overflow para conter o conteúdo */
+.shield-inner {
+  position: absolute;
+  inset: 0;
+  display: block;
+  transform: scale(var(--scale-inner));
+  transform-origin: 50% 50%;
+  background: #fff;
+  clip-path: $shield-poly; /* recorte do miolo */
+  z-index: -1;
+  overflow: hidden; /* garante que nada “vaze” pra fora do brasão */
+
+  /* camada que preenche no hover */
+  .fill {
+    position: absolute;
+    inset: 0;
+    background: var(--accent);
+    opacity: 0;                 /* invisível inicialmente */
+    transition: opacity .25s ease;
+  }
+}
+
+/* Conteúdo central (também recortado) */
+.shield-content {
+  position: absolute;
+  inset: 0;
+  clip-path: $shield-poly;              /* conteúdo respeita o recorte */
+  transform: scale(var(--scale-inner));
+  transform-origin: 50% 50%;
+  /* REMOVIDO: display:grid; place-items:center; */
+}
+
+
+.label {
+  position: absolute;
+  top: 43%;
+  left: 50%;
+  transform: translate(-50%, -50%);     /* centro exato */
+  text-align: center;
+
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: clamp(28px, 3.8vw, 56px); /* aumente os números aqui */
+  letter-spacing: .08em;  
+  line-height: 1.1;
+  color: var(--outline);
+  transition: opacity .25s ease, color .25s ease;
+}
+
+
+/* Botão “Saiba mais” formato pílula */
+.cta {
+  position: absolute;
+  top: 43%;
+  left: 50%;
+  transform: translate(-50%, -50%);     /* centro exato */
+  text-align: center;
+
+  display: inline-block;
+  padding: 10px 22px;
+  border-radius: 999px;
+  border: 2px solid #fff;
+  color: #fff;
+  font-weight: 800;
+  background: transparent;
+
+  opacity: 0;                           /* escondido até hover */
+  transition: opacity .25s ease, background .2s ease, color .2s ease;
+  pointer-events: none;                 /* clique continua no brasão */
+}
+
+.cta { transform: translate(-50%, calc(-50% + 6px)); transition: opacity .25s, transform .25s; }
+.shield:hover .cta { transform: translate(-50%, -50%); }
+
+
+/* ===== Interações ===== */
+.shield:hover .shield-inner .fill,
+.shield:has(:focus-visible) .shield-inner .fill {
+  opacity: 1;                 /* preenche 100% do miolo */
+}
+
+.shield:hover .label,
+.shield:has(:focus-visible) .label {
+  opacity: 0;                 /* some o texto */
+}
+
+.shield:hover .cta,
+.shield:has(:focus-visible) .cta {
+  opacity: 1;                 /* aparece a pílula exatamente no centro */
+  pointer-events: auto;
+}
+
+.shield:hover .cta:hover {
+  background: #fff;
+  color: var(--accent);
+}
+
+/* ===== Foto à direita ===== */
+.right {
+  display: grid;
+  place-items: center;
+
+  img {
+    width: min(560px, 100%);
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+}
+
+
+
+$shield-poly: polygon(
+  /* topo e laterais direitas (iguais às suas) */
+  100% 15%, 100% 49%, 95% 69%, 88% 78%, 83% 84%,
+
+  /* ——— ARCO DIREITO (15 pontos) ——— */
+  82.7% 84%, 81.5% 85.3%, 80.2% 86.6%, 78.8% 87.7%, 76.8% 89.2%,
+  75.0% 90.3%, 73.0% 91.5%, 71.0% 92.6%, 69.0% 93.6%, 66.5% 94.8%,
+  64.0% 95.9%, 61.0% 96.9%, 58.0% 97.8%, 55.0% 98.6%, 52.5% 99.3%,
+
+  /* ponta inferior */
+  50% 100%,
+
+  /* ——— ARCO ESQUERDO (15 pontos – espelho exato) ——— */
+  47.5% 99.3%, 45.0% 98.6%, 42.0% 97.8%, 39.0% 96.9%, 36.0% 95.9%,
+  33.5% 94.8%, 31.0% 93.6%, 29.0% 92.6%, 27.0% 91.5%, 25.0% 90.3%,
+  23.2% 89.2%, 21.2% 87.7%, 19.8% 86.6%, 18.5% 85.3%, 17.3% 84%,
+
+  /* laterais esquerdas e topo (iguais às suas) */
+  12% 78%, 5% 69%, 0 49%, 0 15%,
+  50% 3%
+);

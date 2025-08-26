@@ -1,0 +1,32 @@
+<section class="hero">
+    <div class="left">
+        <h1 class="title">{{ title }}</h1>
+        <h2 class="subtitle">{{ subtitle }}</h2>
+
+        <div class="shields">
+            <button class="shield" *ngFor="let it of items" type="button" [style.--accent]="it.accent"
+                [style.--outline]="it.outline || '#241B45'" [style.--label]="it.textColor || (it.outline || '#241B45')"
+                [attr.aria-label]="it.label" (click)="onItemClick(it)">
+                <span class="shield-outline"></span>
+
+                <!-- máscaras para deixar as laterais brancas -->
+                <span class="side-mask left"></span>
+                <span class="side-mask right"></span>
+
+                <span class="shield-inner"><span class="fill"></span></span>
+
+                <span class="shield-content">
+                    <span class="label">{{ it.label }}</span>
+                    <span class="cta" *ngIf="it.ctaOnHover">{{ it.ctaLabel || 'Saiba mais' }}</span>
+                </span>
+            </button>
+
+        </div>
+
+        <div class="footer">{{ footer }}</div>
+    </div>
+
+    <div class="right" *ngIf="photoUrl">
+        <img [src]="photoUrl" [alt]="photoAlt" />
+    </div>
+</section>

@@ -14,6 +14,7 @@ import { CarroselComponent } from '../carrosel/carrosel.component';
 import { CarouselComponent } from '../carousel/carousel.component';
 import { LocalAtuacaoComponent } from '../local-atuacao/local-atuacao.component';
 import { NewsCarouselComponent } from '../news-carousel/news-carousel.component';
+import { EscudosSaibamaisComponent } from '../escudos-saibamais/escudos-saibamais.component';
 
 const routes: Routes = [
   {
@@ -36,7 +37,8 @@ const routes: Routes = [
     CarroselComponent,
     CarouselComponent,
     LocalAtuacaoComponent,    
-    NewsCarouselComponent
+    NewsCarouselComponent,
+    EscudosSaibamaisComponent
   ],
   imports: [
     CommonModule,
